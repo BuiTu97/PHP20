@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Bootstrap Example</title>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
+	<title>Document</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -10,10 +10,9 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 	<div class="container">
 		<h2>Form Infomation</h2>
-		<form action="submit.php" method="POST" class="needs-validation" novalidate>
+		<form action="add_process.php" method="GET" class="needs-validation" novalidate>
 			<div class="form-group">
 				<label for="msv">Mã Sinh Viên:</label>
 				<input type="text" class="form-control" id="msv" placeholder="nhập mã sinh viên" name="msv" required>
@@ -49,14 +48,6 @@
 				<div class="invalid-feedback">Vui lòng nhập địa chỉ.</div>
 			</div>
 
-			<!-- <div class="form-group form-check">
-				<label class="form-check-label">
-					<input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
-					<div class="valid-feedback">Valid.</div>
-					<div class="invalid-feedback">Check this checkbox to continue.</div>
-				</label>
-			</div> -->
-
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
 				<label class="form-check-label" for="exampleRadios1">
@@ -73,7 +64,6 @@
 			<button type="submit" class="btn btn-primary" name="submit">Submit</button>
 		</form>
 	</div>
-
 	<script>
 		(function() {
 			'use strict';
@@ -91,6 +81,5 @@
 			}, false);
 		})();
 	</script>
-
 </body>
 </html>
