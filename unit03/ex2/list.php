@@ -13,6 +13,7 @@ session_start();
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<h1>DANH SÁCH SINH VIÊN</h1>
 	<table class="table">
 		<thead>
 			<tr>
@@ -37,8 +38,8 @@ session_start();
 					<td><?=$_SESSION[$key]['name']?></td>
 					<td><?=$_SESSION[$key]['sdt']?></td>
 					<td>
-						<a href="detail.php? msv=<? = $_SESSION[$key]['msv']?>">Detail</a>
-						<a href="delete.php? msv=<? = $_SESSION[$key]['msv']?>">Delete</a>
+						<a href=" detail.php?msv=<?=$_SESSION[$key]['msv']?>">Detail</a>
+						<a href=" delete.php?msv=<?=$_SESSION[$key]['msv']?>">Delete</a>
 					</td>
 				</tr>
 			<!-- </tbody> -->
