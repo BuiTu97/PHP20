@@ -24,16 +24,16 @@ session_start();
 	}
 </style>
 <body>
-	<h1>DANH SÁCH SINH VIÊN</h1>
+	<h1>DANH SÁCH SẢN PHẨM</h1>
 	<table class="table">
 		<thead>
 			<tr>
 				<!-- <th scope="col">#</th> -->
 		
 
-				<th scope="col">Mã Sinh Viên</th>
-				<th scope="col">Họ Và Tên</th>
-				<th scope="col">Số Điện Thoại</th>
+				<th scope="col">Mã Sản Phẩm</th>
+				<th scope="col">Tên Sản Phẩm</th>
+				<th scope="col">Đơn Giá</th>
 				<th scope="col">Action</th>
 
 
@@ -45,12 +45,11 @@ session_start();
 					<!-- <th scope="row">1</th> -->
 			
 
-					<td><?=$_SESSION[$key]['msv']?></td>
+					<td><?=$_SESSION[$key]['msp']?></td>
 					<td><?=$_SESSION[$key]['name']?></td>
-					<td><?=$_SESSION[$key]['sdt']?></td>
+					<td><?=$_SESSION[$key]['dg']?></td>
 					<td>
-						<a href=" detail.php?msv=<?=$_SESSION[$key]['msv']?>">Detail</a>
-						<a href=" delete.php?msv=<?=$_SESSION[$key]['msv']?>">Delete</a>
+						<a href=" detail.php?msv=<?=$_SESSION[$key]['msv']?>">Add To Cart</a>
 					</td>
 				</tr>
 			<!-- </tbody> -->
