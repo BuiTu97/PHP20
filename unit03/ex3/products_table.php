@@ -1,6 +1,8 @@
 <?php 
 session_start();
+ require_once('products.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,36 +26,40 @@ session_start();
 	}
 </style>
 <body>
-	<h1>DANH SÁCH SẢN PHẨM</h1>
+	<h1>DANH SÁCH SẢN PHẨM</h1>
 	<table class="table">
 		<thead>
 			<tr>
-				<!-- <th scope="col">#</th> -->
-		
-
-				<th scope="col">Mã Sản Phẩm</th>
-				<th scope="col">Tên Sản Phẩm</th>
-				<th scope="col">Đơn Giá</th>
+				<th scope="col">Mã Sản Phẩm</th>
+				<th scope="col">Tên Sản Phẩm</th>
+				<th scope="col">Giá</th>
+				<th scope="col">Nhà Xuất Bản</th>
 				<th scope="col">Action</th>
 
 
 			</tr>
 		</thead>
-		<?php foreach ($_SESSION as $key => $value): ?>
-			<!-- <tbody> -->
+		<?php
+		$index = 0;
+		 foreach ($products as $key => $value){
+		 	$index ++;
+		  ?>
 				<tr>
-					<!-- <th scope="row">1</th> -->
-			
-
-					<td><?=$_SESSION[$key]['msp']?></td>
-					<td><?=$_SESSION[$key]['name']?></td>
-					<td><?=$_SESSION[$key]['dg']?></td>
+					<td><?=$index?></td>
+					<td><?=$products[$key]['name']?></td>
+					<td><?=$products[$key]['prices']?></td>
+					<td><?=$products[$key]['publisher']?></td>
 					<td>
-						<a href=" detail.php?msv=<?=$_SESSION[$key]['msv']?>">Add To Cart</a>
+						<a href="products_add_process.php?key=<?=$key?>" >Add To Cart</a>
 					</td>
 				</tr>
-			<!-- </tbody> -->
-		<?php endforeach ?>
+		<?php  } ?>
 	</table>
+	<?php 
+		if(isset($_COOKIE['msg'])){
+			echo $_COOKIE['msg'].'<br>';
+		}
+	 ?>
+	<a href="cart.php?key=<?=$key?>"> View Cart</a>
 </body>
 </html>

@@ -1,4 +1,6 @@
-
+<?php 
+	session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,38 +15,39 @@
 <body>
 	<div class="container">
 		<h2>Form Infomation</h2>
-		<form action="add_process.php" method="POST" class="needs-validation" novalidate>
+		<form action="edit_process.php" method="POST" class="needs-validation" novalidate>
+			<input type="hidden" class="form-control" id="msv" value="<?=$_SESSION['students'][$_GET['id']]['id']?>" name="id_certain" readonly >
 			<div class="form-group">
 				<label for="msv">Mã Sinh Viên:</label>
-				<input type="text" class="form-control" id="msv" placeholder="nhập mã sinh viên" name="msv" required>
+				<input type="text" class="form-control" id="msv" value="<?=$_SESSION['students'][$_GET['msv']]['msv']?>" name="msv" readonly >
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Vui lòng nhập mã sinh viên.</div>
 			</div>
 
 			<div class="form-group">
 				<label for="name">Họ Và Tên:</label>
-				<input type="text" class="form-control" id="name" placeholder="Nhập họ tên" name="name" required>
+				<input type="text" class="form-control" id="name" placeholder="<?=$_SESSION['students'][$_GET['msv']]['name']?>" name="name" required>
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
 			</div>
 
 			<div class="form-group">
 				<label for="sdt">Số Điện Thoại:</label>
-				<input type="text" class="form-control" id="sdt" placeholder="Nhập số điện thoại" name="sdt" required>
+				<input type="text" class="form-control" id="sdt" placeholder="<?=$_SESSION['students'][$_GET['msv']]['sdt']?>" name="sdt" required>
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Vui lòng nhập số điện thoại.</div>
 			</div>
 
 			<div class="form-group">
 				<label for="email">Email:</label>
-				<input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" required>
+				<input type="email" class="form-control" id="email" placeholder="<?=$_SESSION['students'][$_GET['msv']]['email']?>" name="email" required>
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Vui lòng nhập email.</div>
 			</div>
 
 			<div class="form-group">
 				<label for="diaChi">Địa Chỉ:</label>
-				<input type="text" class="form-control" id="diaChi" placeholder="Nhập địa chỉ" name="diaChi" required>
+				<input type="text" class="form-control" id="diaChi" placeholder="<?=$_SESSION['students'][$_GET['msv']]['diaChi']?>" name="diaChi" required>
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Vui lòng nhập địa chỉ.</div>
 			</div>

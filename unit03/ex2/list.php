@@ -28,9 +28,6 @@ session_start();
 	<table class="table">
 		<thead>
 			<tr>
-				<!-- <th scope="col">#</th> -->
-		
-
 				<th scope="col">Mã Sinh Viên</th>
 				<th scope="col">Họ Và Tên</th>
 				<th scope="col">Số Điện Thoại</th>
@@ -39,21 +36,17 @@ session_start();
 
 			</tr>
 		</thead>
-		<?php foreach ($_SESSION as $key => $value): ?>
-			<!-- <tbody> -->
+		<?php foreach ($_SESSION['students'] as $key => $value): ?>
 				<tr>
-					<!-- <th scope="row">1</th> -->
-			
-
-					<td><?=$_SESSION[$key]['msv']?></td>
-					<td><?=$_SESSION[$key]['name']?></td>
-					<td><?=$_SESSION[$key]['sdt']?></td>
+					<td><?=$_SESSION['students'][$key]['msv']?></td>
+					<td><?=$_SESSION['students'][$key]['name']?></td>
+					<td><?=$_SESSION['students'][$key]['sdt']?></td>
 					<td>
-						<a href=" detail.php?msv=<?=$_SESSION[$key]['msv']?>">Detail</a>
-						<a href=" delete.php?msv=<?=$_SESSION[$key]['msv']?>">Delete</a>
+						<a href=" detail.php?msv=<?=$key?>" >Detail</a>
+						<a href=" delete.php?msv=<?=$key?>" >Delete</a>
+						<a href=" edit.php?msv=<?=$key?>" >Edit</a>
 					</td>
 				</tr>
-			<!-- </tbody> -->
 		<?php endforeach ?>
 	</table>
 </body>

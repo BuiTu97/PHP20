@@ -1,5 +1,5 @@
 <?php 
 	session_start();
-	unset($_SESSION[$_GET['msv']]);
+	unset($_SESSION['students'][$_GET['msv']]);
 	header('Location: list.php');
  ?>
