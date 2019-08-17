@@ -11,9 +11,9 @@
 <body>
 	<div class="container">
 		<h3 align="center">DevMind - Education And Technology Group</h3>
-		<h3 align="center">Add New Category</h3>
+		<h3 align="center">Add New User</h3>
 		<hr>
-		<form action="category_add_process.php" method="POST" role="form" >
+		<form action="user_add_process.php" method="POST" role="form" >
 			<div class="form-group">
 				<label for="">ID</label>
 				<input type="text" class="form-control" id="id" placeholder="" name="id">
@@ -23,16 +23,16 @@
 				<input type="text" class="form-control" id="name" placeholder="" name="name">
 			</div>
 			<div class="form-group">
-				<label for="">Thumbnail</label>
-				<input type="text" class="form-control" id="Thumbnail" placeholder="" name="thumbnail">
+				<label for="">Email</label>
+				<input type="text" class="form-control" id="email" placeholder="" name="email">
 			</div>
 			<div class="form-group">
-				<label for="">Slug</label>
-				<input type="text" class="form-control" id="Slug" placeholder="" name="slug">
+				<label for="">Password</label>
+				<input type="password" class="form-control" id="password" placeholder="" name="password">
 			</div>
 			<div class="form-group">
-				<label for="">Description</label>
-				<input type="text" class="form-control" id="description" placeholder="" name="description">
+				<label for="">Avatar</label>
+				<input type="text" class="form-control" id="avatar" placeholder="" name="avatar">
 			</div>
 			<div class="form-group">
 				<label for="">Created_at</label>
