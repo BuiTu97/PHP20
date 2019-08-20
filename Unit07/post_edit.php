@@ -11,6 +11,24 @@
        $posts[] = $row;
     }
 
+    $slug = $_GET['slug'];
+
+    $query_2 = "SELECT * FROM posts WHERE slug='".$slug."' ";
+
+    $post = $conn->query($query_2)->fetch_assoc();
+
+
+
+    $query_3 = "SELECT * FROM categories";
+
+    $result1 = $conn->query($query_3);
+
+    $categories = array();
+
+    while ($row = $result1->fetch_assoc()) {
+       $categories[] = $row;
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,48 +49,49 @@
 <body>
     <div class="container">
     <h3 align="center">DevMind - Education And Technology Group</h3>
-    <h3 align="center">Add New Category</h3>
+    <h3 align="center">Edit Post</h3>
     <hr>
-       <form action="post_add_process.php" method="POST" role="form" enctype="multipart/form-data">
+       <form action="post_edit_process.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Title</label>
-                <input type="text" class="form-control" id="" placeholder="" name="title" >
+                <input type="text" class="form-control" id="" placeholder="" name="title" value="<?= $post['title'] ?>" >
+                <input type="hidden" class="form-control" value="<?= $post['id'] ?>" id="" placeholder="" name="id" >
+
             </div>
             <div class="form-group">
                 <label for="">Thumbnail</label>
-                <!-- <img src="images/<?= $post['thumbnail'] ?>" width="100px" height="100px"> -->
-                <input type="file" class="form-control"  id="" placeholder="" name="thumbnail" >
+                <img src="images/<?= $post['thumbnail'] ?>" width="100px" height="100px">
+                <input type="file" class="form-control"  id="" placeholder="" name="thumbnail">
             </div>
              <div class="form-group">
                 <label for="">Description</label>
-                <textarea type="text" class="form-control" id="" placeholder="" name="description" ></textarea>
+                <input type="text" class="form-control" id="" placeholder="" name="description" value = "<?= $post['description'] ?>" >
             </div>
               <div class="form-group">
                 <label for="">Content</label>
-                <textarea type="text" class="form-control" id="" placeholder="" name="content" >
-                </textarea>
+                <input type="text" class="form-control" id="" placeholder="" name="content" value = "<?= $post['content'] ?>">
             </div>
              <div class="form-group">
                 <label for="">Slug</label>
-                <input type="text" class="form-control" id="" placeholder="" name="slug" >
+                <input type="text" class="form-control" id="" placeholder="" name="slug" value="<?= $post['slug'] ?>">
             </div>
              <div class="form-group">
                 <label for="">View_Count</label>
-                <input type="text" class="form-control" id="" placeholder="" name="view_count" >
+                <input type="text" class="form-control" id="" placeholder="" name="view_count" value="<?= $post['view_count'] ?>" >
             </div>
              <div class="form-group">
                 <label for="">Category_id</label>
                 <select class="form-control" id="" placeholder="" name="category_id">
-                <?php foreach ($posts as $cate_id) {?>
-                    <option value="<?= $cate_id['category_id'] ?>"><?= $cate_id['id'] ?>. <?= $cate_id['title'] ?></option>
+                <?php foreach ($categories as $cate_id) {?>
+                    <option <?php if($post['category_id'] == $cate_id['id']) echo 'selected'?>> <?= $cate_id['id'] ?></option>
                 <?php } ?>
                 </select>
             </div>
              <div class="form-group">
                 <label for="">Created_at</label>
-                <input type="text" class="form-control" id="" placeholder="" name="created_at" >
+                <input type="text" class="form-control" id="" placeholder="" name="created_at" value="<?= $post['created_at'] ?>">
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 </body>
