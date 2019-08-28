@@ -10,11 +10,11 @@
 			require_once('views/user/list.php');
 
 		}
-		function detail($id){
+		function detail(){
 			$id = $_GET['id'];
-			$model_obj = new User($id);
-			$user = $model_obj->find();
-			require_once('views/post/detail.php');
+			$model_obj = new User();
+			$user = $model_obj->find($id);
+			require_once('views/user/detail.php');
 		}
 	}
 

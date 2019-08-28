@@ -36,7 +36,7 @@
                     <td> <?= $user['created_at'] ?> </td>
 
                     <td>
-                        <a href="views/user/detail.php?id=<?= $user['id'] ?>" class="btn btn-primary">Detail</a>
+                    <a href="index.php?mod=user&&act=detail&&id=<?= $user['id']?>" class="btn btn-primary">Detail</a>
                         <a href="user_edit.php?id=<?= $item['id'] ?>" class="btn btn-success">Edit</a>
                         <a href="#" class="btn btn-danger">Delete</a>
                     </td>

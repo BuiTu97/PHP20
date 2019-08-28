@@ -15,14 +15,16 @@ class User{
 		}
 		return $users;
 	}
-	function find(){
+	function find($id){
 		$conn_obj = new Connection();
 
-		$query = "SELECT * FROM users WHERE id = '".$id."'";
+		$query = "SELECT * FROM users WHERE id = '".$id."' ";
 
-		$users = $conn_obj->conn->query($query)->fetch_assoc();
+		$result=$conn_obj->conn->query($query);
 
-		return $users;
+		$user= $result->fetch_assoc();
+
+		return $user;
 	}
 }
 ?>
